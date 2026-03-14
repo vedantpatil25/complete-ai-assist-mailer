@@ -1,0 +1,32 @@
+{
+  "name": "AI-Assist Mailer",
+  "description": "You can write the auto generated AI based email",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "action": {
+    "default_title": "AI-Assist Mailer",
+    "default_popup": "hello.html",
+    "default_icon": "extension_icon.png"
+  },
+
+  "permissions": ["activeTab", "storage"],
+
+  "host_permissions": ["http://localhost:8080/*", "*://mail.google.com/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["config.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["*://mail.google.com/*"]
+    }
+  ]
+}
