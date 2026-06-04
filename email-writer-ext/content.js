@@ -114,7 +114,7 @@ const injectButton = () => {
 
         const emailContent = getEmailContent();
 
-        const response = await fetch(`${CONFIG.API_BASE_URL}/email/generate`, {
+        const response = await fetch(`${CONFIG.API_BASE_URL}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
