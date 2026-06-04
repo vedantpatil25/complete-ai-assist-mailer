@@ -11,13 +11,13 @@ import org.springframework.context.annotation.Configuration;
 public class AIConfig {
 
     @Value("${ai.maxTokens}")
-    private int maxTokens;
+    private int maximumToken;
 
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
         return builder
                 .defaultOptions(ChatOptions.builder()
-                        .maxTokens(maxTokens)
+                        .maxTokens(maximumToken)
                         .build())
                 .defaultAdvisors(new SimpleLoggerAdvisor())
                 .build();
